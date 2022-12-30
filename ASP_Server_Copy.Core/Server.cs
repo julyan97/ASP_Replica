@@ -29,10 +29,9 @@ namespace ASP_Server_Copy.Core
 
             while(true)
             {
-
                 using TcpClient client = serverListener.AcceptTcpClient();
-
                 using NetworkStream stream = client.GetStream();
+
                 try
                 {
                     byte[] buffer = new byte[1024];
@@ -56,6 +55,8 @@ namespace ASP_Server_Copy.Core
 
                     //Get Method fom the end points
                     var methodToInvoke = endpoints[bindingAttributeToARequestMethod][controller].FirstOrDefault(x => x.Name == controllerMethod);
+                    
+                    // Create instances of the parameters of the method and initialize their values from the query string
                     var methodParameters = MethodHelper.GetInstansiatedMethodArgumentOfAMethod(methodToInvoke, meyhodParamsAsDictoinary);
 
 
@@ -81,25 +82,25 @@ namespace ASP_Server_Copy.Core
                     continue;
                 }
             }
+        }
 
-            static void BindIncomingDataRequestLine(string incomingData, out string requestLine, out string requestMethod, out string controller, out string controllerMethod, out Dictionary<string, string>? controllersParamsAsDictoinary)
-            {
-                string[] lines = incomingData.Split(new[] { "\r\n" }, StringSplitOptions.None);
+        private void BindIncomingDataRequestLine(string incomingData, out string requestLine, out string requestMethod, out string controller, out string controllerMethod, out Dictionary<string, string>? controllersParamsAsDictoinary)
+        {
+            string[] lines = incomingData.Split(new[] { "\r\n" }, StringSplitOptions.None);
 
-                requestLine = lines[0];
-                var requestLineParts = requestLine.Split();
+            requestLine = lines[0];
+            var requestLineParts = requestLine.Split();
 
-                requestMethod = requestLineParts[0];
-                controller = requestLineParts[1].Split("/")[1];
-                var controllerMethodAndParamsBase = requestLineParts[1].Split("/")[2];
-                var controllerMethodAndParams = controllerMethodAndParamsBase.Split("?");
+            requestMethod = requestLineParts[0];
+            controller = requestLineParts[1].Split("/")[1];
+            var controllerMethodAndParamsBase = requestLineParts[1].Split("/")[2];
+            var controllerMethodAndParams = controllerMethodAndParamsBase.Split("?");
 
-                controllerMethod = controllerMethodAndParams[0];
-                var controllerParams = controllerMethodAndParams.Length > 1 ? controllerMethodAndParams[1] : null;
-                controllersParamsAsDictoinary = controllerParams?
-                    .Split("&")
-                    .ToDictionary(x => x.Split("=")[0], x => x.Split("=")[1]);
-            }
+            controllerMethod = controllerMethodAndParams[0];
+            var controllerParams = controllerMethodAndParams.Length > 1 ? controllerMethodAndParams[1] : null;
+            controllersParamsAsDictoinary = controllerParams?
+                .Split("&")
+                .ToDictionary(x => x.Split("=")[0], x => x.Split("=")[1]);
         }
     }
 }
