@@ -30,6 +30,12 @@ namespace ASP_Server_Copy.Web.Controllers
         {
             return Content(user.Name + " " + user.Id);
         }
+        
+        [HttpGet]
+        public ActionResult GetResponse3()
+        {
+            return Status(200);
+        }
     }
 }
 ```
