@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP_Server_Copy.Web", "ASP_Server_Copy\ASP_Server_Copy.Web.csproj", "{C78C8BBA-45F7-415D-B8B9-EEE871DFE702}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP_Server_Copy.Web", "ASP_Server_Copy.Web\ASP_Server_Copy.Web.csproj", "{C78C8BBA-45F7-415D-B8B9-EEE871DFE702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP_Server_Copy.Core", "ASP_Server_Copy.Core\ASP_Server_Copy.Core.csproj", "{276F5D40-BEF8-45B2-A51E-EC880370B650}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASP_Server_Copy.Core", "ASP_Server_Copy.Core\ASP_Server_Copy.Core.csproj", "{276F5D40-BEF8-45B2-A51E-EC880370B650}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

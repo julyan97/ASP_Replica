@@ -2,7 +2,7 @@
 using ASP_Server_Copy.Core.CustomAttributes;
 using ASP_Server_Copy.Core.Models.ControllerReturnTypes;
 
-namespace ASP_Server_Copy.Controllers
+namespace ASP_Server_Copy.Web.Controllers
 {
     public class User
     {

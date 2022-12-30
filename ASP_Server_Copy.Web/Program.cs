@@ -1,7 +1,7 @@
 ﻿using ASP_Server_Copy.Core;
 using System.Net;
 
-namespace ASP_Server_Copy
+namespace ASP_Server_Copy.Web
 {
     public class Program
     {
