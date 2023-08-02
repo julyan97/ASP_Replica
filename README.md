@@ -7,6 +7,8 @@ The replica has most of the functionalities of ASP.Net MVC and Web API
 2. Create a method in the Controller
 3. Add an attribute to the method to describe the type of the request method
 4. Return a View, Content with a status code or just Status Code
+5. example endpoint Usage: http://localhost:8000/HomeController/GetResponse
+
 
 ```csharp
 namespace ASP_Server_Copy.Web.Controllers
